@@ -11,12 +11,12 @@ class FaqSection extends StatefulWidget {
 
 class _FaqSectionState extends State<FaqSection> {
   final List<Map<String, String>> _faqs = [
-    {'question': '¿Qué es Netflix?', 'answer': 'Netflix es un servicio de streaming que ofrece una gran variedad de películas, series y documentales.'},
-    {'question': '¿Cuánto cuesta Netflix?', 'answer': 'Los planes de Netflix van desde S/ 28.90 hasta S/ 55.90 al mes.'},
-    {'question': '¿Dónde puedo ver Netflix?', 'answer': 'Puedes ver Netflix en smart TV, computadoras, tablets, celulares y más.'},
-    {'question': '¿Cómo cancelo?', 'answer': 'Puedes cancelar tu membresía en cualquier momento desde tu cuenta.'},
-    {'question': '¿Qué puedo ver en Netflix?', 'answer': 'Miles de películas, series, documentales y programas originales.'},
-    {'question': '¿Es bueno Netflix para los niños?', 'answer': 'Sí, Netflix ofrece perfiles infantiles con contenido apropiado.'},
+    {'question': '¿Qué es Netflix?', 'answer': 'Netflix es un servicio de streaming que ofrece una gran variedad de películas, series y documentales en miles de dispositivos conectados a internet.'},
+    {'question': '¿Cuánto cuesta Netflix?', 'answer': 'Disfruta de Netflix en tu smartphone, tablet, Smart TV, laptop o dispositivo de streaming por una tarifa plana mensual. Planes desde S/ 28.90 hasta S/ 55.90 al mes. Sin costos adicionales ni contratos.'},
+    {'question': '¿Dónde puedo ver Netflix?', 'answer': 'Disfruta donde quieras, cuando quieras. Inicia sesión en tu cuenta de Netflix para ver contenido de inmediato a través de netflix.com desde tu computadora o cualquier dispositivo conectado a internet que cuente con la app de Netflix.'},
+    {'question': '¿Cómo cancelo?', 'answer': 'Netflix es flexible. Sin contratos molestos ni compromisos. Puedes cancelar tu cuenta en línea en dos sencillos pasos. No hay cargos por cancelación: puedes iniciar o cancelar tu cuenta en cualquier momento.'},
+    {'question': '¿Qué puedo ver en Netflix?', 'answer': 'Netflix tiene un amplio catálogo de largometrajes, documentales, series, anime, originales galardonados de Netflix y más. Ve todo lo que quieras, en cualquier momento.'},
+    {'question': '¿Es bueno Netflix para los niños?', 'answer': 'La experiencia de Netflix para niños está incluida en la membresía para que los padres tengan el control mientras los pequeños disfrutan de series y películas para toda la familia en un espacio propio.'},
   ];
 
   int? _expandedIndex;
@@ -38,6 +38,7 @@ class _FaqSectionState extends State<FaqSection> {
             ),
           ),
           const SizedBox(height: 20),
+          
           ..._faqs.asMap().entries.map((entry) {
             int index = entry.key;
             String question = entry.value['question']!;
@@ -46,44 +47,46 @@ class _FaqSectionState extends State<FaqSection> {
 
             return Container(
               margin: const EdgeInsets.only(bottom: 12),
-              decoration: BoxDecoration(
+              child: Material(
                 color: AppColors.cardBackground,
                 borderRadius: BorderRadius.circular(4),
-              ),
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Text(
-                      question,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.textWhite,
-                      ),
-                    ),
-                    trailing: Icon(
-                      isExpanded ? Icons.remove : Icons.add,
-                      color: AppColors.textWhite,
-                      size: 28,
-                    ),
-                    onTap: () {
-                      setState(() {
-                        _expandedIndex = isExpanded ? null : index;
-                      });
-                    },
-                  ),
-                  if (isExpanded)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      child: Text(
-                        answer,
+                child: Column(
+                  children: [
+                    ListTile(
+                      title: Text(
+                        question,
                         style: const TextStyle(
-                          fontSize: 16,
-                          color: AppColors.textLightGrey,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.textWhite,
                         ),
                       ),
+                      trailing: Icon(
+                        isExpanded ? Icons.remove : Icons.add,
+                        color: AppColors.textWhite,
+                        size: 28,
+                      ),
+                      onTap: () {
+                        setState(() {
+                          _expandedIndex = isExpanded ? null : index;
+                        });
+                      },
                     ),
-                ],
+                    if (isExpanded)
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                        child: Text(
+                          answer,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: AppColors.textLightGrey,
+                            height: 1.5,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
               ),
             );
           }).toList(),
@@ -96,6 +99,7 @@ class _FaqSectionState extends State<FaqSection> {
             style: TextStyle(
               fontSize: 16,
               color: AppColors.textWhite,
+              height: 1.4,
             ),
           ),
           const SizedBox(height: 20),

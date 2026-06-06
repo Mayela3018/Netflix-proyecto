@@ -19,7 +19,6 @@ class _HeroSectionState extends State<HeroSection> {
       height: 700,
       decoration: BoxDecoration(
         image: const DecorationImage(
-          // ✅ URL DE FONDO QUE FUNCIONA
           image: NetworkImage(
             'https://media.licdn.com/dms/image/v2/D5612AQGy6sM0SJAdxg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1693150322893?e=2147483647&v=beta&t=2_aostRG53XjmjiS9FSI9Jcfn73tsoq3uFate9rV0XE',
           ),
@@ -43,21 +42,15 @@ class _HeroSectionState extends State<HeroSection> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.network(
-                  'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png',
-                  height: 40,
-                  color: AppColors.netflixRed,
-                  errorBuilder: (context, error, stackTrace) {
-                    return const Text(
-                      'NETFLIX',
-                      style: TextStyle(
-                        color: AppColors.netflixRed,
-                        fontSize: 32,
-                        fontWeight: FontWeight.w900,
-                        letterSpacing: 2,
-                      ),
-                    );
-                  },
+                // ✅ SOLO TEXTO NETFLIX (sin imagen)
+                const Text(
+                  'NETFLIX',
+                  style: TextStyle(
+                    color: AppColors.netflixRed,
+                    fontSize: 50,
+                    fontWeight: FontWeight.w900,
+                    letterSpacing: 4,
+                  ),
                 ),
                 CustomButton(
                   text: 'Iniciar sesión',

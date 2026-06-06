@@ -11,7 +11,7 @@ class FeaturesSection extends StatelessWidget {
       color: AppColors.background,
       child: Column(
         children: [
-          // Tendencias
+          // ============ TENDENCIAS ============
           Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -31,7 +31,7 @@ class FeaturesSection extends StatelessWidget {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      _buildTrendCard(context, '1', 'Swapped', 'https://image.tmdb.org/t/p/w500/6XN1vxHc7k5VmFzZi3Yn7VqKJqE.jpg'),
+                      _buildTrendCard(context, '1', 'Swapped', 'https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABWy559RcK_PTwyt5V8CttlzLTkTy3cL6qH5QWCn32JVSv22ynH2OghNn5Aw58WtPgfqC7fvyrW8QZIBTL5_FaH18kTXhejs95BYx.jpg?r=0c6'),
                       _buildTrendCard(context, '2', 'Michael Jackson', 'https://image.tmdb.org/t/p/w500/8cXbitsS6dWQ5gfMTZdorpAAzEH.jpg'),
                       _buildTrendCard(context, '3', 'Berlín', 'https://image.tmdb.org/t/p/w500/1M876KPjulVwppEpldhdc8V4o68.jpg'),
                       _buildTrendCard(context, '4', 'Violencia en la oficina', 'https://image.tmdb.org/t/p/w500/7gKI9hpEMcZUQpNgKrkDzJpbnNS.jpg'),
@@ -42,10 +42,66 @@ class FeaturesSection extends StatelessWidget {
               ],
             ),
           ),
-          
+
           const Divider(color: AppColors.borderGrey, height: 1),
-          
-          // Más motivos
+
+          // ============ ACCIÓN Y AVENTURA ============
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: _buildCategorySection(
+              'Acción y Aventura',
+              [
+                {'title': 'Extraction 2', 'image': 'https://image.tmdb.org/t/p/w500/7gKI9hpEMcZUQpNgKrkDzJpbnNS.jpg'},
+                {'title': 'The Gray Man', 'image': 'https://image.tmdb.org/t/p/w500/8cXbitsS6dWQ5gfMTZdorpAAzEH.jpg'},
+                {'title': 'Red Notice', 'image': 'https://image.tmdb.org/t/p/w500/lAXONuqg41NwUMuzMiFvicDET9Y.jpg'},
+                {'title': '6 Underground', 'image': 'https://image.tmdb.org/t/p/w500/lnWkyG3LLgbbrIEeyl5mK5VRFe4.jpg'},
+                {'title': 'Old Guard', 'image': 'https://image.tmdb.org/t/p/w500/cjr4NWURcVN3gW5FlHeabgBHLrY.jpg'},
+              ],
+            ),
+          ),
+
+          const Divider(color: AppColors.borderGrey, height: 1),
+
+          // ============ COMEDIAS ============
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: _buildCategorySection(
+              'Comedias',
+              [
+                {'title': 'Murder Mystery 2', 'image': 'https://image.tmdb.org/t/p/w500/vDGr1YdrlfbU9wxTOdpf3zChmv9.jpg'},
+{'title': 'Glass Onion', 'image': 'https://image.tmdb.org/t/p/w500/vDGr1YdrlfbU9wxTOdpf3zChmv9.jpg'},
+{'title': 'You People', 'image': 'https://image.tmdb.org/t/p/w500/vDGr1YdrlfbU9wxTOdpf3zChmv9.jpg'},
+{'title': 'Luther', 'image': 'https://image.tmdb.org/t/p/w500/vDGr1YdrlfbU9wxTOdpf3zChmv9.jpg'},
+{'title': 'Knives Out', 'image': 'https://image.tmdb.org/t/p/w500/pThyQovXQrw2m0s9x82twj48Jq4.jpg'},
+              ],
+            ),
+          ),
+
+          const Divider(color: AppColors.borderGrey, height: 1),
+
+          // ============ DOCUMENTALES ============
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: _buildCategorySection(
+              'Documentales',
+              [
+                {'title': 'Our Planet', 'image': 'https://image.tmdb.org/t/p/w500/pThyQovXQrw2m0s9x82twj48Jq4.jpg'},
+{'title': 'The Social Dilemma', 'image': 'https://image.tmdb.org/t/p/w500/pThyQovXQrw2m0s9x82twj48Jq4.jpg'},
+{'title': 'Tiger King', 'image': 'https://image.tmdb.org/t/p/w500/pThyQovXQrw2m0s9x82twj48Jq4.jpg'},
+{'title': 'Chef\'s Table', 'image': 'https://image.tmdb.org/t/p/w500/rQGBjWNveVeF8f2PGRtS85w9o9r.jpg'},
+
+
+              ]
+            ),
+          ),
+
+          const Divider(color: AppColors.borderGrey, height: 1),
+
+        
+
+          const Divider(color: AppColors.borderGrey, height: 1),
+
+          // ============ MÁS MOTIVOS PARA UNIRTE ============
           Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -81,6 +137,103 @@ class FeaturesSection extends StatelessWidget {
     );
   }
 
+  // ==========================================
+  // MÉTODOS AUXILIARES (FUERA DEL BUILD)
+  // ==========================================
+
+  // Método para construir secciones de categorías
+  Widget _buildCategorySection(String title, List<Map<String, String>> movies) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+          child: Row(
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.textWhite,
+                ),
+              ),
+              const SizedBox(width: 8),
+              const Icon(Icons.chevron_right, color: AppColors.textGrey, size: 20),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 220,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            itemCount: movies.length,
+            itemBuilder: (context, index) {
+              return _buildSmallCard(movies[index]['title']!, movies[index]['image']!);
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  // Card pequeña para categorías
+  Widget _buildSmallCard(String title, String imageUrl) {
+    return Container(
+      width: 150,
+      margin: const EdgeInsets.symmetric(horizontal: 6),
+      child: Column(
+        children: [
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                imageUrl,
+                fit: BoxFit.cover,
+                width: 150,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return Container(
+                    color: AppColors.cardBackground,
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        value: loadingProgress.expectedTotalBytes != null
+                            ? loadingProgress.cumulativeBytesLoaded /
+                                loadingProgress.expectedTotalBytes!
+                            : null,
+                        color: AppColors.netflixRed,
+                        strokeWidth: 2,
+                      ),
+                    ),
+                  );
+                },
+                errorBuilder: (context, error, stackTrace) {
+                  return Container(
+                    color: AppColors.cardBackground,
+                    child: const Icon(Icons.movie, color: AppColors.textGrey),
+                  );
+                },
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            title,
+            style: const TextStyle(
+              color: AppColors.textWhite,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Card de tendencia (con modal)
   Widget _buildTrendCard(BuildContext context, String number, String title, String imageUrl) {
     return GestureDetector(
       onTap: () {
@@ -191,6 +344,7 @@ class FeaturesSection extends StatelessWidget {
     );
   }
 
+  // Feature card (TV, Descargas)
   Widget _buildFeatureCard(String title, String description, IconData icon, Color iconColor) {
     return Container(
       padding: const EdgeInsets.all(20),
@@ -229,6 +383,7 @@ class FeaturesSection extends StatelessWidget {
     );
   }
 
+  // Métodos auxiliares para datos del modal
   String _getDescription(String title) {
     switch (title) {
       case 'Swapped':
