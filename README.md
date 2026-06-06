@@ -71,3 +71,86 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
   google_fonts: ^6.1.0
+
+
+📁 Estructura del Proyecto
+
+
+lib/
+├── main.dart                    # Punto de entrada de la aplicación
+├── core/                        # Configuraciones globales
+│   ├── app_colors.dart          # Paleta de colores de Netflix
+│   └── app_theme.dart           # Tema global y tipografías
+├── screens/                     # Pantallas principales
+│   └── landing_page.dart        # Página de aterrizaje completa
+└── widgets/                     # Componentes reutilizables
+    ├── common/
+    │   ├── custom_button.dart   # Botón personalizado de Netflix
+    │   └── movie_detail_modal.dart  # Modal de detalles de película
+    └── landing/
+        ├── hero_section.dart    # Banner principal con formulario
+        ├── features_section.dart    # Sección de tendencias y características
+        ├── faq_section.dart     # Preguntas frecuentes
+        └── footer_section.dart  # Pie de página con links
+
+assets/
+└── images/                      # Recursos locales
+    ├── netflix_background.jpg   # Imagen de fondo del hero
+    └── [posters de películas]
+
+
+🚀 Instalación y Configuración
+Prerrequisitos
+Flutter SDK 3.0 o superior
+Dart 3.0 o superior
+Android Studio / VS Code
+Git
+Pasos de Instalación
+Clonar el repositorio
+git clone https://github.com/Mayela3018/Netflix-proyecto.git
+cd Netflix-proyecto
+
+Instalar dependencias
+flutter pub get
+
+Configurar assets
+Asegúrate de que las imágenes estén en assets/images/
+Verifica que el pubspec.yaml tenga configurado:
+flutter:
+  assets:
+    - assets/images/
+
+Ejecutar la aplicación
+flutter run
+
+
+🎯 Características Destacadas
+1. Arquitectura Limpia
+El proyecto sigue una estructura modular que facilita el mantenimiento y la escalabilidad. Cada componente tiene una responsabilidad única.
+2. Manejo de Errores
+Implementación robusta de errorBuilder y loadingBuilder en todas las imágenes, garantizando una experiencia de usuario fluida incluso con problemas de conexión.
+3. Performance Optimizada
+Uso de const constructors, widgets stateless cuando es posible, y optimización de rebuilds para máximo rendimiento.
+4. Código Documentado
+Comentarios explicativos en secciones clave del código para facilitar la comprensión y el mantenimiento.
+📱 Plataformas Soportadas
+✅ Android (API 21+)
+✅ iOS (iOS 12+)
+✅ Web (Chrome, Firefox, Safari)
+✅ Desktop (Windows, macOS, Linux) - No probado
+🔮 Mejoras Futuras
+Agregar autenticación de usuarios
+Integrar API real de TMDB
+Implementar reproducción de videos
+Agregar modo claro/oscuro toggle
+Soporte para múltiples idiomas
+Tests unitarios y de widgets
+👩‍💻 Autor
+Mayela
+🎓 Estudiante de Tecsup
+📱 Desarrollo de Aplicaciones Móviles
+
+Este proyecto es parte de un trabajo académico y está desarrollado con fines educativos.
+El diseño y la marca Netflix son propiedad de Netflix, Inc.
+
+
