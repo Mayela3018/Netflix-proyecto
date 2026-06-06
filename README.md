@@ -99,6 +99,7 @@ assets/
     └── [posters de películas]
 
 
+---------
 🚀 Instalación y Configuración
 Prerrequisitos
 Flutter SDK 3.0 o superior
@@ -150,7 +151,8 @@ Mayela
 🎓 Estudiante de Tecsup
 📱 Desarrollo de Aplicaciones Móviles
 
+
 Este proyecto es parte de un trabajo académico y está desarrollado con fines educativos.
-El diseño y la marca Netflix son propiedad de Netflix, Inc.
+
 
 
